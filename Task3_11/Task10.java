@@ -1,6 +1,7 @@
 package Task3_11;
 
 public class Task10 {
+
     public static void main(String[] args) {
         //a and b are sides of first house
         //c and d are sides of second house

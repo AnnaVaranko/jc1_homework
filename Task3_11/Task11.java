@@ -1,5 +1,4 @@
 package Task3_11;
-
 public class Task11 {
     String str;
     String monday = "Go to the gym";

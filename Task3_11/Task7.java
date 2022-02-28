@@ -5,7 +5,7 @@ public class Task7 {
     int r, diameterOfCircle;
     double a, b, diameterOfRectangle;
 
-    public String getIfWeCanCloseRectangle(int firstSide, int secondSide, int radius){
+    public String getIfWeCanCloseRectangle(int firstSide, int secondSide, int radius) {
         a = firstSide * firstSide;
         b = secondSide * secondSide;
         diameterOfRectangle = Math.sqrt(a + b);
@@ -13,13 +13,13 @@ public class Task7 {
         r = radius;
         diameterOfCircle = r + r;
 
-        if(diameterOfRectangle <= diameterOfCircle)
+        if (diameterOfRectangle <= diameterOfCircle)
             return "Circle's closing rectangle";
         else return "Circle isn't closing rectangle";
 
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         System.out.println(new Task7().getIfWeCanCloseRectangle(11, 18, 8));
     }
 }

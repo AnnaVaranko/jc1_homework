@@ -7,12 +7,12 @@ public class Task5 {
     int seconds, minutes, hours, days, weeks;
     String str;
 
-    public String getTime(){
+    public String getTime() {
         seconds = amountOfTime;
-        minutes = seconds/60;
-        hours = minutes/60;
-        days = hours/24;
-        weeks = days/7;
+        minutes = seconds / 60;
+        hours = minutes / 60;
+        days = hours / 24;
+        weeks = days / 7;
         str = "There are " + seconds + " seconds, " +
                 minutes + " minutes, " +
                 hours + " hours, " +
@@ -22,7 +22,7 @@ public class Task5 {
         return str;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         System.out.println(new Task5().getTime());
     }
 }

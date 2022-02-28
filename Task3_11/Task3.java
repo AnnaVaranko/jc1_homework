@@ -1,7 +1,7 @@
 package Task3_11;
 
 public class Task3 {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         byte b = 0X55;
         short s = 0x55ff;
         int i = 1_000_000;
