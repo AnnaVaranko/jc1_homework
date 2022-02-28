@@ -5,7 +5,6 @@ public class Task9 {
     String str;
 
     public String getDate(int day, int month, int year) {
-        if (month > 0 && month < 13) {
             switch (month) {
                 case 1:
                 case 3:
@@ -56,10 +55,10 @@ public class Task9 {
                             str = "No such date exists";
                     }
                     break;
+                default:
+                    str = "No such date exists";
             }
-        } else {
-            str = "No such date exists";
-        }
+
         return str;
     }
 
