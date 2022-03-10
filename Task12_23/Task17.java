@@ -6,9 +6,11 @@ public class Task17 {
     public String getNumber() {
         int count = 0;
         String str = "";
+
         Scanner scanner = new Scanner(System.in);
         System.out.print("Input correct number:");
         long number = scanner.nextInt();
+
         while (number != 0) {
             str = Long.toString(number % 10) + str;
             count++;
