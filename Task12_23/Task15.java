@@ -8,10 +8,10 @@ public class Task15 {
             int counter = 0;
             for(int j = 1; j <= i; j++){
                 if(i % j == 0) counter++;
-                if(counter == 2){
-                    System.out.println("Number is " + i);
-                    primeNumber++;
-                }
+            }
+            if(counter == 2){
+                System.out.println("Number is " + i);
+                primeNumber++;
             }
             if(primeNumber == 2)break;
         }

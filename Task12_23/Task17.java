@@ -10,9 +10,9 @@ public class Task17 {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Input correct number:");
         long number = scanner.nextInt();
-
+        
         while (number != 0) {
-            str = Long.toString(number % 10) + str;
+            str = (number % 10) + str;
             count++;
             number /= 10;
             if(count == 3){
