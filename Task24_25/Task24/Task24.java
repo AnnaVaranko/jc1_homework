@@ -5,7 +5,7 @@ public class Task24 {
 
 
         PeriodOfTime time = new PeriodOfTime(3050);
-        PeriodOfTime time2 = new PeriodOfTime(30, 505000000, 1);
+        PeriodOfTime time2 = new PeriodOfTime(3050, 0, 0);
 
         Engine e = new Engine();
 
