@@ -6,6 +6,7 @@ public class NumberBanknotes {
     private int valueHundred = 0;
 
     NumberBanknotes(int twenty, int fifty, int hundred) {
+
         valueTwenty = twenty;
         valueFifty = fifty;
         valueHundred = hundred;
@@ -20,4 +21,5 @@ public class NumberBanknotes {
     public int getValueHundred(){
         return valueHundred;
     }
+
 }

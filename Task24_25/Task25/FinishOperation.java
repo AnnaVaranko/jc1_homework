@@ -3,13 +3,16 @@ package Task24_25.Task25;
 import java.util.Scanner;
 
 public class FinishOperation {
+
     Scanner scanner = new Scanner(System.in);
     private boolean finishOperation = true;
 
-    public boolean IsOperationFinished(){
+    public void IsOperationFinished(){
+
         System.out.println("Would you like continue? " +
                 "Enter \"Y\" for continue, \"N\" for exit");
         String exit = scanner.nextLine();
+
         if(exit.toUpperCase().equals("N"))
             finishOperation = false;
         else if(exit.toUpperCase().equals("Y"))
@@ -18,7 +21,6 @@ public class FinishOperation {
             System.out.println("Incorrect input");
             finishOperation = false;
         }
-        return finishOperation;
     }
 
     public boolean getFinishOperation(){

@@ -1,4 +1,6 @@
-package Task24_25.Task25;
+package Task24_25.Draft;
+
+import Task24_25.Task25.FinishOperation;
 
 import java.util.Scanner;
 
@@ -7,14 +9,16 @@ public class CashMachineDepositMoney {
     Scanner scanner = new Scanner(System.in);
     FinishOperation fo = new FinishOperation();
 
-    private int countTwenty;
-    private int countFifty;
-    private int countHundred;
+    private int countTwenty = 0;
+    private int countFifty = 0;
+    private int countHundred = 0;
 
-    public void choice(){
+    public void choice(CashMachineDepositMoney m){
+
         String choice;
 
         while (fo.getFinishOperation()) {
+
             System.out.println("This ATM takes banknotes with denominations: 20, 50, 100." +
                     "\nWould you like to add banknotes with denominations:" +
                     "\n\t1. 20;" +
@@ -26,62 +30,70 @@ public class CashMachineDepositMoney {
 
             switch (choice) {
                 case "1":
-                    new CashMachineDepositMoney().banknote20();
+                    m.banknote20();
                     break;
                 case "2":
-                    new CashMachineDepositMoney().banknote50();
+                    m.banknote50();
                     break;
                 case "3":
-                    new CashMachineDepositMoney().banknote100();
+                    m.banknote100();
                     break;
                 default:
                     System.out.println("Incorrect input.");
                     break;
             }
+
             fo.IsOperationFinished();
         }
     }
 
     public int banknote20() {
+        int banknote20;
+
         System.out.println("Input number of banknotes with denominations 20: ");
         String banknote = scanner.nextLine();
+
         if (banknote.matches("\\d+")){
-            countTwenty = Integer.parseInt(banknote);
+            countTwenty = countTwenty + Integer.parseInt(banknote);
             System.out.println("Operation was successful");
         }
         else{
             System.out.println("Incorrect input");
             countTwenty = 0;
         }
+
         return countTwenty;
     }
 
-    public int banknote50() {
+
+    public void banknote50() {
+
         System.out.println("Input number of banknotes with denominations 50: ");
         String banknote = scanner.nextLine();
+
         if (banknote.matches("\\d+")){
-            countFifty = Integer.parseInt(banknote);
+            countFifty = countFifty + Integer.parseInt(banknote);
             System.out.println("Operation was successful");
         }
         else{
             System.out.println("Incorrect input");
             countFifty = 0;
         }
-        return countFifty;
     }
 
-    public int banknote100() {
+    public void banknote100() {
+
         System.out.println("Input number of banknotes with denominations 100: ");
         String banknote = scanner.nextLine();
+
         if (banknote.matches("\\d+")){
-            countHundred = Integer.parseInt(banknote);
+            countHundred = countHundred + Integer.parseInt(banknote);
             System.out.println("Operation was successful");
         }
         else{
             System.out.println("Incorrect input");
             countHundred = 0;
         }
-        return countHundred;
     }
 
     public int getBanknote20(){
@@ -94,5 +106,11 @@ public class CashMachineDepositMoney {
 
     public int getBanknote100(){
         return countHundred;
+    }
+
+    public void check(){
+        System.out.println("CountTwenty in class CashMachineDepositMoney" + countTwenty);
+        System.out.println("CountFifty in class CashMachineDepositMoney" + countFifty);
+        System.out.println("CountHundred in class CashMachineDepositMoney" + countHundred);
     }
 }

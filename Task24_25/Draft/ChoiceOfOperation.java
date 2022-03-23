@@ -1,4 +1,6 @@
-package Task24_25.Task25;
+package Task24_25.Draft;
+
+import Task24_25.Task25.FinishOperation;
 
 import java.util.Scanner;
 
@@ -6,9 +8,12 @@ public class ChoiceOfOperation {
     CashMachineDepositMoney m = new CashMachineDepositMoney();
     FinishOperation fo = new FinishOperation();
 
-    public void getChoiceOfOperation(){
+    private void getChoiceOfOperation(){
+
         while (fo.getFinishOperation()) {
+
             Scanner firstChoice = new Scanner(System.in);
+
             System.out.println("Would you like: " +
                     "\n\t1.Deposit money into account;" +
                     "\n\t2.Withdraw money from account." +
@@ -17,7 +22,7 @@ public class ChoiceOfOperation {
             String yourFirstChoice = firstChoice.nextLine();
 
             if (yourFirstChoice.equals("1")) {
-                m.choice();
+                m.choice(m);
             }
             else if (yourFirstChoice.equals("2")) {
 
@@ -25,6 +30,7 @@ public class ChoiceOfOperation {
                 System.out.println("Incorrect input");
 
             }
+
             System.out.println("Would you like: " +
                     "\n\t1.Deposit money into account;" +
                     "\n\t2.Withdraw money from account." +
