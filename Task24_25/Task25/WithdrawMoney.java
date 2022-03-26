@@ -36,12 +36,12 @@ public class WithdrawMoney {
     }
 
     private void checkSum() {
-        if(inputSum >= 0){
-            if(inputSum / 100 == 30 || inputSum / 100 == 90 || inputSum / 100 == 10){
+        if(inputSum > 0){
+            if(inputSum % 100 == 30 || inputSum % 100 == 90 || inputSum % 100 == 10){
 
                 System.out.println("ATM can't approve this sum of money: " + inputSum + ". Cause of in ATM" +
-                        "\n there are banknotes denomination 20, 50, 100.");
-                System.out.println("ATM can approve this sum of money: " + (inputSum + 10) + ". Continue?");
+                        "\nthere are banknotes denomination 20, 50, 100.");
+                System.out.println("\nATM can approve this sum of money: " + (inputSum + 10) + ". Continue?\n");
 
                 fo.IsOperationFinished();
                 if(fo.getFinishOperation()) someMoney = inputSum + 10;

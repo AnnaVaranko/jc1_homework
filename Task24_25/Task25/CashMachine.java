@@ -8,7 +8,7 @@ public class CashMachine {
 
     public CashMachine() {
         this.userDisplay = new UserDisplay();
-        this.nb = new NumberBanknotes(12, 54, 73);
+        this.nb = new NumberBanknotes(12, 54, 756213);
         this.dm = new DepositMoney();
         this.wm = new WithdrawMoney();
     }

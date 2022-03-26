@@ -61,15 +61,18 @@ public class UserDisplay {
 
     public void outputNumberBanknotesWithdrawMoney(int valueTwenty, int valueFifty,
                                                    int valueHundred, int inputSum) {
-        if(inputSum <= 0) System.out.println("Incorrect input");
+        // if in ATM valueTwenty, valueFifty or valueHundred == 0 ?
+        if(inputSum <= 0){
+            System.out.println("Incorrect input");
+        }
 
         int sumOnHundred = (valueTwenty * 100 / 5) + (valueFifty * 100 / 2) + (valueHundred * 100);
 
-        if(sumOnHundred  > inputSum & inputSum > 0){
+        if(sumOnHundred > inputSum & inputSum > 0){
             System.out.println("ATM prepares sum of money...");
             byWhatDivisibleNumber(inputSum);
             whichMoneyGive(valueTwenty, valueFifty, valueHundred, inputSum);
-        } else if (sumOnHundred < inputSum & inputSum > 0)
+        } else if (sumOnHundred < inputSum)
             System.out.println("The ATM doesn't have enough money. Thank you for using our ATM. Have a nice day." +
                 " Goodbye. ");
 
@@ -83,22 +86,7 @@ public class UserDisplay {
     }
 
     private void whichMoneyGive(int twenty, int fifty, int hundred, int sum) {
-//        int countTwenty;
-//        int countFifty;
-//        int countHundred;
 
-         if(caseOfDivision == 1){
-             if(hundred >= (sum / 100)) {
-                 System.out.println("Take " + (sum / 100) + " banknotes with denomination 100.");
-             } else if(hundred + (fifty / 2) >= (sum / 100)){
-                 System.out.println("Take " + hundred + " banknotes with denomination 100," +
-                         "\n" + ((sum / 100 - hundred) * 2) + " banknotes with denomination 50.");
-             } else {
-                 System.out.println("Take " + hundred + " banknotes with denomination 100," +
-                         "\n" + fifty + " banknotes with denomination 50," +
-                         "\n" + ((sum / 100 - hundred - (fifty / 2) ) * 5) + " banknotes with denomination 50.");
-             }
-         }
-
+        System.out.println("private void whichMoneyGive");
     }
 }
