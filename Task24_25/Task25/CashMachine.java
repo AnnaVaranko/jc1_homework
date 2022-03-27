@@ -16,7 +16,6 @@ public class CashMachine {
 
     public void work() {
         checkBanknotes();
-
         userDisplay.checkChoiceOfOperation();
         chosenOperation(userDisplay.getUserChoice());
     }
@@ -24,15 +23,14 @@ public class CashMachine {
     public void chosenOperation(int choice) {
         if(choice == 1){
             dm.depositMoney();
-            userDisplay.outputNumberBanknotesDepositMoney(nb.getValueTwenty(), nb.getValueFifty(), nb.getValueHundred(),
-                    dm.getCountTwenty(), dm.getCountFifty(), dm.getCountHundred());
+            dm.outputNumberBanknotesDepositMoney(nb.getValueTwenty(), nb.getValueFifty(), nb.getValueHundred());
         }
         else if(choice == 2) {
             wm.withdrawMoney();
-            userDisplay.outputNumberBanknotesWithdrawMoney(nb.getValueTwenty(), nb.getValueFifty(),
-                    nb.getValueHundred(), wm.getInputSum());
+            wm.outputNumberBanknotesWithdrawMoney(nb.getValueTwenty(), nb.getValueFifty(),
+                    nb.getValueHundred());
         }
-        else if(choice == -1) System.out.println("Incorrect input");
+        else if(choice == -1) userDisplay.incorrectInput();
     }
 
 

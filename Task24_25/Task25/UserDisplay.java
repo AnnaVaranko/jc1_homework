@@ -7,7 +7,6 @@ public class UserDisplay {
 
     private int userChoice;
     private String yourFirstChoice;
-    private int caseOfDivision;
 
     public UserDisplay() {
         this.fo = new FinishOperation();
@@ -47,11 +46,8 @@ public class UserDisplay {
         return userChoice;
     }
 
-    public void outputNumberBanknotesDepositMoney(int twenty, int fifty, int hundred,
-                                                  int countTwenty, int countFifty, int countHundred) {
-        int amount20 = twenty + countTwenty;
-        int amount50 = fifty + countFifty;
-        int amount100 = hundred + countHundred;
+    public void outputNumberBanknotesDM(int amount20, int amount50, int amount100) {
+
         System.out.println("In ATM there are:\n" +
                 "\n\t\tbanknotes 20, quantity: " + amount20 +
                 "\n\t\tbanknotes 50, quantity: " + amount50 +
@@ -61,32 +57,36 @@ public class UserDisplay {
 
     public void outputNumberBanknotesWithdrawMoney(int valueTwenty, int valueFifty,
                                                    int valueHundred, int inputSum) {
-        // if in ATM valueTwenty, valueFifty or valueHundred == 0 ?
-        if(inputSum <= 0){
-            System.out.println("Incorrect input");
-        }
+//        // if in ATM valueTwenty, valueFifty or valueHundred == 0 ?
+//        if(inputSum <= 0){
+//            System.out.println("Incorrect input");
+//        }
 
-        int sumOnHundred = (valueTwenty * 100 / 5) + (valueFifty * 100 / 2) + (valueHundred * 100);
 
-        if(sumOnHundred > inputSum & inputSum > 0){
-            System.out.println("ATM prepares sum of money...");
-            byWhatDivisibleNumber(inputSum);
-            whichMoneyGive(valueTwenty, valueFifty, valueHundred, inputSum);
-        } else if (sumOnHundred < inputSum)
-            System.out.println("The ATM doesn't have enough money. Thank you for using our ATM. Have a nice day." +
-                " Goodbye. ");
 
     }
 
-    private void byWhatDivisibleNumber(int sum) {
-        if(sum % 100 == 0) caseOfDivision = 1;
-        else if(sum % 50 == 0) caseOfDivision = 2;
-        else if (sum % 20 == 0) caseOfDivision = 3;
-        else if (sum / 100 == 70) caseOfDivision = 4;
+    public void inputSum(int inputSum) {
+        System.out.println("ATM can't approve this sum of money: " + inputSum + ". Cause of in ATM" +
+                "\nthere are banknotes denomination 20, 50, 100.");
+        System.out.println("\nATM can approve this sum of money: " + (inputSum + 10) + ". Continue?\n");
     }
 
-    private void whichMoneyGive(int twenty, int fifty, int hundred, int sum) {
+    public void choiceDenominationBanknotes() {
+        System.out.println("This ATM takes banknotes with denominations: 20, 50, 100." +
+                "\nWould you like to add banknotes with denominations:" +
+                "\n\t1. 20;" +
+                "\n\t2. 50;" +
+                "\n\t3. 100. " +
+                "\n\nIf you want to add banknotes with denominations 20 enter 1," +
+                "50 enter 2, 100 enter 3");
+    }
 
-        System.out.println("private void whichMoneyGive");
+    public void incorrectInput() {
+        System.out.println("Incorrect input.");
+    }
+
+    public void successfulOperation() {
+        System.out.println("Operation was successful");
     }
 }
