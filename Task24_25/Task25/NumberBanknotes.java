@@ -1,9 +1,9 @@
 package Task24_25.Task25;
 
 public class NumberBanknotes {
-    private int valueTwenty = 0;
-    private int valueFifty = 0;
-    private int valueHundred = 0;
+    private final int valueTwenty;
+    private final int valueFifty;
+    private final int valueHundred;
 
     NumberBanknotes(int twenty, int fifty, int hundred) {
 

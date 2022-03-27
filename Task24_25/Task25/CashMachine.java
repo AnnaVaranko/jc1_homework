@@ -8,7 +8,7 @@ public class CashMachine {
 
     public CashMachine() {
         this.userDisplay = new UserDisplay();
-        this.nb = new NumberBanknotes(12, 54, 756213);
+        this.nb = new NumberBanknotes(123132, 554334, 756213);
         this.dm = new DepositMoney();
         this.wm = new WithdrawMoney();
     }
@@ -20,6 +20,10 @@ public class CashMachine {
         chosenOperation(userDisplay.getUserChoice());
     }
 
+    private void checkBanknotes(){
+        userDisplay.numberOfBanknotes(nb.getValueTwenty(), nb.getValueFifty(), nb.getValueHundred());
+    }
+
     public void chosenOperation(int choice) {
         if(choice == 1){
             dm.depositMoney();
@@ -27,16 +31,9 @@ public class CashMachine {
         }
         else if(choice == 2) {
             wm.withdrawMoney();
-            wm.outputNumberBanknotesWithdrawMoney(nb.getValueTwenty(), nb.getValueFifty(),
+            wm.toGiveMoney(nb.getValueTwenty(), nb.getValueFifty(),
                     nb.getValueHundred());
         }
         else if(choice == -1) userDisplay.incorrectInput();
     }
-
-
-    private void checkBanknotes(){
-        userDisplay.numberOfBanknotes(nb.getValueTwenty(), nb.getValueFifty(), nb.getValueHundred());
-    }
-
-
 }

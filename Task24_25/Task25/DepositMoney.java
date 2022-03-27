@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class DepositMoney {
 
-    private UserDisplay userDisplay;
+    private final UserDisplay userDisplay;
     private int countTwenty = 0;
     private int countFifty = 0;
     private int countHundred = 0;
@@ -25,7 +25,6 @@ public class DepositMoney {
         while (fo.getFinishOperation()){
             choiceDenomination();
             fo.IsOperationFinished();
-
         }
     }
 
@@ -74,10 +73,10 @@ public class DepositMoney {
         }
     }
 
-    private String inputNumberBanknotes20() {
+    private void inputNumberBanknotes20() {
         //TODO: if number too long
         System.out.println("Input number of banknotes with denominations 20: ");
-        return banknote = scanner.nextLine();
+        banknote = scanner.nextLine();
     }
 
     private void setCountFifty() {
@@ -92,13 +91,11 @@ public class DepositMoney {
         }
     }
 
-    private String  inputNumberBanknotes50() {
+    private void inputNumberBanknotes50() {
         //TODO: if number too long
         System.out.println("Input number of banknotes with denominations 50: ");
-        return banknote = scanner.nextLine();
+        banknote = scanner.nextLine();
     }
-
-
 
     private void setCountHundred() {
         inputNumberBanknotes100();
@@ -112,23 +109,11 @@ public class DepositMoney {
         }
     }
 
-    private String inputNumberBanknotes100() {
+    private void inputNumberBanknotes100() {
         //TODO: if number too long
         System.out.println("Input number of banknotes with denominations 100: ");
-        return banknote = scanner.nextLine();
+        banknote = scanner.nextLine();
     }
-
-//    public int getCountTwenty() {
-//        return countTwenty;
-//    }
-//
-//    public int getCountFifty() {
-//        return countFifty;
-//    }
-//
-//    public int getCountHundred() {
-//        return countHundred;
-//    }
 
     public void outputNumberBanknotesDepositMoney(int twenty, int fifty, int hundred) {
         int amount20 = twenty + countTwenty;
