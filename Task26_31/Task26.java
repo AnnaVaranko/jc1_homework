@@ -6,6 +6,12 @@ public class Task26 {
     public void findPunctuation(){
         Scanner scanner = new Scanner(System.in);
         String str = scanner.nextLine();
+
+        if(str == "null") {
+            System.out.println("Incorrect input");
+            return;
+        }
+
         int count = 0;
         char symbol;
 

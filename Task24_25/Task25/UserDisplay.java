@@ -83,4 +83,41 @@ public class UserDisplay {
         System.out.println("The ATM doesn't have enough money. Thank you for using our ATM. Have a nice day." +
                 " Goodbye. ");
     }
+
+    public void messageForSumDivisibleBy100(int i, int inputSumMoney, int valueFifty, int valueHundred) {
+        switch (i){
+            case 1: System.out.println("Please, take 1 banknote with denomination 100");
+                break;
+            case 2:  System.out.println("Please, take" + inputSumMoney/100 + "banknote with denomination 100");
+                break;
+            case 3: System.out.println("Please, take" + valueHundred + "banknote with denomination 100," +
+                    "\n" + (inputSumMoney - valueHundred*100)/50 + "banknote with denomination 50");
+                break;
+            case 4: System.out.println("Please, take" + valueHundred + "banknote with denomination 100," +
+                    "\n" + valueFifty + "banknote with denomination 50," +
+                    "\n" + (inputSumMoney - valueHundred*100 - valueFifty*50)/20 + "banknote with denomination 20");
+                break;
+            case 5: System.out.println("Please, take" + valueHundred + "banknote with denomination 100," +
+                    "\n" + (valueFifty - 1) + "banknote with denomination 50," +
+                    "\n" + (inputSumMoney - valueHundred*100 - (valueFifty - 1)*50)/20 + "banknote with denomination 20");
+                break;
+        }
+    }
+
+    public void messageForSumDivisibleBy50(int i, int valueHundred, int inputSumMoney, int sumTemporary) {
+        switch (i){
+            case 1: System.out.println("Please, take 1 banknote with denomination 50");
+                break;
+            case 2:  System.out.println("Please, take" + (inputSumMoney - 50)/100 + "banknote with denomination 100," +
+                    "\n1 banknote with denomination 50" );
+                break;
+            case 3: System.out.println("Please, take" + valueHundred + "banknote with denomination 100," +
+                    "\n" + sumTemporary/50 + " banknote with denomination 50" );
+                break;
+            case 4: System.out.println("Please, take" + valueHundred + "banknote with denomination 100," +
+                    "\n" + sumTemporary / 20 + "banknote with denomination 20," +
+                    "\n" + (sumTemporary + 50) / 50 + "banknote with denomination 20");
+                break;
+        }
+    }
 }

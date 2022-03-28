@@ -1,24 +1,32 @@
 package Task26_31;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Task27 {
     public void getArray(){
+        int count = 0;
+        char symbol;
+
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the line: ");
         String str = scanner.nextLine();
-        String str2 = str.replaceAll(" +", " ");
 
-        if(str2.charAt(0) == ' '){
-            String str3 = str2.substring(1);
-
-            String arr = Arrays.toString(str3.split(" "));
-            System.out.println("Array: " + arr);
-        } else{
-            String arr = Arrays.toString(str2.split(" "));
-            System.out.println("Array: " + arr);
+        if(str == "null") {
+            System.out.println("Incorrect input");
+            return;
         }
+
+        String str2 = str.replaceAll(" +", " ");
+        String str3 = str2.stripLeading();
+        System.out.println("Line without extra space: " + str3);
+
+        for(int i = 0; i < str3.length(); i ++){
+            symbol = str3.charAt(i);
+            if(symbol == ' ') count++;
+        }
+        System.out.println("Number of word in the line: " + count);
     }
+
     public static void main(String[] args) {
         new Task27().getArray();
     }

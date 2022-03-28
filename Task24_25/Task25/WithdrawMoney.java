@@ -102,30 +102,98 @@ public class WithdrawMoney {
     }
 
     private void inputSumDivisibleBy100() {
-        if(inputSumMoney == 100) System.out.println("Please, take 1 banknote with denomination 100");
+
+        if(inputSumMoney == 100){
+            userDisplay.messageForSumDivisibleBy100(1, inputSumMoney, valueFifty,valueHundred);
+            userDisplay.successfulOperation();
+            return;
+        }
 
         if(inputSumMoney <= valueHundred * 100){
-            System.out.println("Please, take" + inputSumMoney/100 + "banknote with denomination 100");
+            userDisplay.messageForSumDivisibleBy100(2, inputSumMoney, valueFifty, valueHundred);
+            userDisplay.successfulOperation();
+
         } else if(inputSumMoney <= (valueHundred * 100 + valueFifty * 50)){
-            System.out.println("Please, take" + valueHundred + "banknote with denomination 100," +
-                    "\n" + (inputSumMoney - valueHundred*100)/50 + "banknote with denomination 50");
+            userDisplay.messageForSumDivisibleBy100(3, inputSumMoney, valueFifty, valueHundred);
+            userDisplay.successfulOperation();
+
         } else if (inputSumMoney <= (valueHundred * 100 + valueFifty * 50 + valueTwenty * 20)){
-            System.out.println("Please, take" + valueHundred + "banknote with denomination 100," +
-                    "\n" + (inputSumMoney - valueHundred*100)/50 + "banknote with denomination 50," +
-                    "\n" + (inputSumMoney - valueHundred*100 - valueFifty*50)/20 + "banknote with denomination 20");
+
+            if(valueFifty % 2 == 0) userDisplay.messageForSumDivisibleBy100(4, inputSumMoney, valueFifty, valueHundred);
+            else userDisplay.messageForSumDivisibleBy100(5, inputSumMoney, valueFifty, valueHundred);
+            userDisplay.successfulOperation();
         }
 
     }
 
     private void inputSumDivisibleBy50() {
 
+        int sumTemporary =0;
+
+        if(inputSumMoney == 50){
+            userDisplay.messageForSumDivisibleBy50(1,  valueHundred, inputSumMoney, sumTemporary);
+            userDisplay.successfulOperation();
+            return;
+        }
+
+        if(inputSumMoney <= valueHundred * 100){
+            userDisplay.messageForSumDivisibleBy50(2, valueHundred, inputSumMoney, sumTemporary);
+            userDisplay.successfulOperation();
+
+        } else if(inputSumMoney <= (valueHundred * 100 + valueFifty * 50)){
+            sumTemporary = inputSumMoney - valueHundred *100;
+            userDisplay.messageForSumDivisibleBy50(3,  valueHundred, inputSumMoney, sumTemporary);
+            userDisplay.successfulOperation();
+
+        }else if (inputSumMoney <= (valueHundred * 100 + valueFifty * 50 + valueTwenty * 20)) {
+            //TODO
+            sumTemporary = inputSumMoney - 50 -valueHundred * 100;
+            userDisplay.messageForSumDivisibleBy50(4, valueHundred, inputSumMoney, sumTemporary);
+            userDisplay.successfulOperation();
+        }
     }
 
     private void inputSumDivisibleBy20() {
+
+        if (inputSumMoney % 100 == 20) {
+            if (inputSumMoney == 20) {
+                System.out.println("Take 1 banknote with denomination 20");
+                userDisplay.successfulOperation();
+            } else {
+
+            }
+
+        } else if (inputSumMoney % 100 == 40) {
+            if (inputSumMoney == 40) {
+                System.out.println("Take 2 banknote with denomination 20");
+                userDisplay.successfulOperation();
+            } else {
+            }
+
+        } else if (inputSumMoney % 100 == 60) {
+            if (inputSumMoney == 60) {
+                System.out.println("Take 3 banknote with denomination 20");
+                userDisplay.successfulOperation();
+            } else {
+
+            }
+        } else if (inputSumMoney % 100 == 80) {
+            if (inputSumMoney == 80) {
+                System.out.println("Take 4 banknote with denomination 20");
+                userDisplay.successfulOperation();
+            } else {
+
+            }
+        }
     }
 
 
     private void inputSumEndedOf70() {
-    }
+        if (inputSumMoney == 70) {
+            System.out.println("Take 1 banknote with denomination 50," +
+                    "1  banknote with denomination 70");
+            userDisplay.successfulOperation();
+        }
 
+    }
 }
