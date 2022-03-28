@@ -85,39 +85,84 @@ public class UserDisplay {
     }
 
     public void messageForSumDivisibleBy100(int i, int inputSumMoney, int valueFifty, int valueHundred) {
-        switch (i){
-            case 1: System.out.println("Please, take 1 banknote with denomination 100");
+        switch (i) {
+            case 1:
+                System.out.println("Please, take 1 banknote with denomination 100");
                 break;
-            case 2:  System.out.println("Please, take" + inputSumMoney/100 + "banknote with denomination 100");
+            case 2:
+                System.out.println("Please, take" + inputSumMoney / 100 + "banknote with denomination 100");
                 break;
-            case 3: System.out.println("Please, take" + valueHundred + "banknote with denomination 100," +
-                    "\n" + (inputSumMoney - valueHundred*100)/50 + "banknote with denomination 50");
+            case 3:
+                System.out.println("Please, take" + valueHundred + "banknote with denomination 100," +
+                        "\n" + (inputSumMoney - valueHundred * 100) / 50 + "banknote with denomination 50");
                 break;
-            case 4: System.out.println("Please, take" + valueHundred + "banknote with denomination 100," +
-                    "\n" + valueFifty + "banknote with denomination 50," +
-                    "\n" + (inputSumMoney - valueHundred*100 - valueFifty*50)/20 + "banknote with denomination 20");
+            case 4:
+                System.out.println("Please, take" + valueHundred + "banknote with denomination 100," +
+                        "\n" + valueFifty + "banknote with denomination 50," +
+                        "\n" + (inputSumMoney - valueHundred * 100 - valueFifty * 50) / 20 + "banknote with denomination 20");
                 break;
-            case 5: System.out.println("Please, take" + valueHundred + "banknote with denomination 100," +
-                    "\n" + (valueFifty - 1) + "banknote with denomination 50," +
-                    "\n" + (inputSumMoney - valueHundred*100 - (valueFifty - 1)*50)/20 + "banknote with denomination 20");
+            case 5:
+                System.out.println("Please, take" + valueHundred + "banknote with denomination 100," +
+                        "\n" + (valueFifty - 1) + "banknote with denomination 50," +
+                        "\n" + (inputSumMoney - valueHundred * 100 - (valueFifty - 1) * 50) / 20 + "banknote with denomination 20");
                 break;
         }
     }
 
-    public void messageForSumDivisibleBy50(int i, int valueHundred, int inputSumMoney, int sumTemporary) {
-        switch (i){
-            case 1: System.out.println("Please, take 1 banknote with denomination 50");
+    public void messageForSumDivisibleBy50(int i, int valueFifty, int valueHundred, int inputSumMoney) {
+        switch (i) {
+            case 1:
+                System.out.println("Please, take 1 banknote with denomination 50");
                 break;
-            case 2:  System.out.println("Please, take" + (inputSumMoney - 50)/100 + "banknote with denomination 100," +
-                    "\n1 banknote with denomination 50" );
+            case 2:
+                System.out.println("Please, take " + (inputSumMoney - 50) / 100 + " banknote with denomination 100," +
+                        "\n1 banknote with denomination 50");
                 break;
-            case 3: System.out.println("Please, take" + valueHundred + "banknote with denomination 100," +
-                    "\n" + sumTemporary/50 + " banknote with denomination 50" );
+            case 3:
+                System.out.println("Please, take " + valueHundred + " banknote with denomination 100," +
+                        "\n" + (inputSumMoney - valueHundred * 100) / 50 + " banknote with denomination 50");
                 break;
-            case 4: System.out.println("Please, take" + valueHundred + "banknote with denomination 100," +
-                    "\n" + sumTemporary / 20 + "banknote with denomination 20," +
-                    "\n" + (sumTemporary + 50) / 50 + "banknote with denomination 20");
+            case 4:
+                System.out.println("Please, take " + valueHundred + " banknote with denomination 100," +
+                        "\n" + (valueFifty - 1) + " banknote with denomination 50," +
+                        "\n" + (inputSumMoney - valueHundred * 100 - (valueFifty - 1) * 50) / 20 + " banknote with denomination 20");
+                break;
+            case 5:
+                System.out.println("Please, take " + valueHundred + " banknote with denomination 100," +
+                        "\n" + valueFifty + " banknote with denomination 50," +
+                        "\n" + (inputSumMoney - valueHundred * 100 - valueFifty * 50) / 20 + " banknote with denomination 20");
                 break;
         }
+    }
+
+    public void messageForSumDivisibleBy20(int i, int inputSumMoney, int valueHundred, int valueFifty, int count) {
+        switch (i) {
+            case 1:
+                System.out.println("Take " + count + " banknote with denomination 20");
+                break;
+            case 2:
+                System.out.println("Take " + count + " banknotes whit denomination 20," +
+                        "\n" + (inputSumMoney - count * 20) / 100 + " whit denomination 100");
+                break;
+            case 3:
+                System.out.println("Take " + count + " banknotes whit denomination 20," +
+                        "\n" + valueHundred + "whit denomination 100" +
+                        "\n" + (inputSumMoney - valueHundred * 100 - count * 20) / 50 + "whit denomination 100");
+                break;
+            case 4:
+                System.out.println("Take " + valueHundred + " banknotes with denomination 100," +
+                        "\n" + valueFifty + " banknotes with denomination 50," +
+                        "\n" + (inputSumMoney - valueHundred*100 - valueFifty*50) / 20 + " banknotes with denomination 20");
+                break;
+            case 5:
+                System.out.println("Take " + valueHundred + " banknotes with denomination 100," +
+                        "\n" + (valueFifty - 1) + " banknotes with denomination 50," +
+                        "\n" + (inputSumMoney - valueHundred * 100 - (valueFifty - 1)*50) / 20 + " banknotes with denomination 20");
+                break;
+        }
+    }
+
+    public void fullSumInATM(long sumOfMoneyInCashMachine) {
+        System.out.println("In ATM there are " + sumOfMoneyInCashMachine + " money");
     }
 }

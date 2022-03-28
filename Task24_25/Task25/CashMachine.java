@@ -8,7 +8,7 @@ public class CashMachine {
 
     public CashMachine() {
         this.userDisplay = new UserDisplay();
-        this.nb = new NumberBanknotes(123132, 554334, 756213);
+        this.nb = new NumberBanknotes(3132, 334, 213);
         this.dm = new DepositMoney();
         this.wm = new WithdrawMoney();
     }
@@ -16,6 +16,7 @@ public class CashMachine {
 
     public void work() {
         checkBanknotes();
+        userDisplay.fullSumInATM(nb.sumOfMoneyInCashMachine());
         userDisplay.checkChoiceOfOperation();
         chosenOperation(userDisplay.getUserChoice());
     }

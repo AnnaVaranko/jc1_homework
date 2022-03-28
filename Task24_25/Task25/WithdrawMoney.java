@@ -128,61 +128,133 @@ public class WithdrawMoney {
 
     private void inputSumDivisibleBy50() {
 
-        int sumTemporary =0;
-
         if(inputSumMoney == 50){
-            userDisplay.messageForSumDivisibleBy50(1,  valueHundred, inputSumMoney, sumTemporary);
+            userDisplay.messageForSumDivisibleBy50(1, valueFifty, valueHundred, inputSumMoney);
             userDisplay.successfulOperation();
             return;
         }
 
         if(inputSumMoney <= valueHundred * 100){
-            userDisplay.messageForSumDivisibleBy50(2, valueHundred, inputSumMoney, sumTemporary);
+            userDisplay.messageForSumDivisibleBy50(2, valueFifty, valueHundred, inputSumMoney);
             userDisplay.successfulOperation();
 
         } else if(inputSumMoney <= (valueHundred * 100 + valueFifty * 50)){
-            sumTemporary = inputSumMoney - valueHundred *100;
-            userDisplay.messageForSumDivisibleBy50(3,  valueHundred, inputSumMoney, sumTemporary);
+            userDisplay.messageForSumDivisibleBy50(3, valueFifty, valueHundred, inputSumMoney);
             userDisplay.successfulOperation();
 
         }else if (inputSumMoney <= (valueHundred * 100 + valueFifty * 50 + valueTwenty * 20)) {
-            //TODO
-            sumTemporary = inputSumMoney - 50 -valueHundred * 100;
-            userDisplay.messageForSumDivisibleBy50(4, valueHundred, inputSumMoney, sumTemporary);
-            userDisplay.successfulOperation();
+
+            if(valueFifty % 2 == 0){
+                userDisplay.messageForSumDivisibleBy50(4, valueFifty, valueHundred, inputSumMoney);
+                userDisplay.successfulOperation();
+            } else{
+                userDisplay.messageForSumDivisibleBy50(5, valueFifty, valueHundred, inputSumMoney);
+                userDisplay.successfulOperation();
+            }
         }
     }
 
     private void inputSumDivisibleBy20() {
-
+        int count;
         if (inputSumMoney % 100 == 20) {
+            count = 1;
             if (inputSumMoney == 20) {
-                System.out.println("Take 1 banknote with denomination 20");
+                userDisplay.messageForSumDivisibleBy20(1, inputSumMoney, valueHundred,valueFifty, count);
                 userDisplay.successfulOperation();
             } else {
+                if(inputSumMoney < valueHundred*100 + 20){
+                    userDisplay.messageForSumDivisibleBy20(2, inputSumMoney, valueHundred,valueFifty, count );
+                    userDisplay.successfulOperation();
+                } else if (inputSumMoney < valueHundred*100 + 20 + valueFifty * 50){
+                    userDisplay.messageForSumDivisibleBy20(3, inputSumMoney, valueHundred,valueFifty, count);
+                    userDisplay.successfulOperation();
+                }
+                else {
+                    if(valueFifty % 2 == 0){
+                        userDisplay.messageForSumDivisibleBy20(4, inputSumMoney, valueHundred,valueFifty, count);
+                        userDisplay.successfulOperation();
+                    } else {
+                        userDisplay.messageForSumDivisibleBy20(5, inputSumMoney, valueHundred,valueFifty, count);
+                        userDisplay.successfulOperation();
+                    }
+                }
 
             }
 
         } else if (inputSumMoney % 100 == 40) {
+            count = 2;
             if (inputSumMoney == 40) {
-                System.out.println("Take 2 banknote with denomination 20");
+                userDisplay.messageForSumDivisibleBy20(1, inputSumMoney, valueHundred,valueFifty, count );
                 userDisplay.successfulOperation();
+
             } else {
+
+                if(inputSumMoney < valueHundred*100 + 2 * 20){
+                    userDisplay.messageForSumDivisibleBy20(2, inputSumMoney, valueHundred,valueFifty, count );
+                    userDisplay.successfulOperation();
+
+                } else if (inputSumMoney < valueHundred*100 + 2*20 + valueFifty * 50){
+                    userDisplay.messageForSumDivisibleBy20(3, inputSumMoney, valueHundred,valueFifty, count );
+                    userDisplay.successfulOperation();
+                }
+                else {
+
+                    if(valueFifty % 2 == 0){
+                        userDisplay.messageForSumDivisibleBy20(4, inputSumMoney, valueHundred,valueFifty, count );
+                        userDisplay.successfulOperation();
+
+                    } else {
+                        userDisplay.messageForSumDivisibleBy20(5, inputSumMoney, valueHundred,valueFifty, count );
+                        userDisplay.successfulOperation();
+                    }
+                }
             }
 
         } else if (inputSumMoney % 100 == 60) {
+            count = 3;
             if (inputSumMoney == 60) {
-                System.out.println("Take 3 banknote with denomination 20");
+                userDisplay.messageForSumDivisibleBy20(1, inputSumMoney, valueHundred,valueFifty, count );
                 userDisplay.successfulOperation();
             } else {
-
+                if(inputSumMoney < valueHundred*100 + 3 * 20){
+                    userDisplay.messageForSumDivisibleBy20(2, inputSumMoney, valueHundred,valueFifty, count );
+                    userDisplay.successfulOperation();
+                } else if (inputSumMoney < valueHundred*100 + 3*20 + valueFifty * 50){
+                    userDisplay.messageForSumDivisibleBy20(3, inputSumMoney, valueHundred,valueFifty, count);
+                    userDisplay.successfulOperation();
+                }
+                else {
+                    if(valueFifty % 2 == 0){
+                        userDisplay.messageForSumDivisibleBy20(4, inputSumMoney, valueHundred,valueFifty, count);
+                        userDisplay.successfulOperation();
+                    } else {
+                        userDisplay.messageForSumDivisibleBy20(5, inputSumMoney, valueHundred,valueFifty, count);
+                        userDisplay.successfulOperation();
+                    }
+                }
             }
         } else if (inputSumMoney % 100 == 80) {
+            count = 4;
             if (inputSumMoney == 80) {
-                System.out.println("Take 4 banknote with denomination 20");
+                userDisplay.messageForSumDivisibleBy20(1, inputSumMoney, valueHundred,valueFifty, count);
                 userDisplay.successfulOperation();
             } else {
-
+                if(inputSumMoney < valueHundred*100 + 4 * 20){
+                    userDisplay.messageForSumDivisibleBy20(2, inputSumMoney, valueHundred,valueFifty, count);
+                    userDisplay.successfulOperation();
+                } else if (inputSumMoney < valueHundred*100 + 4*20 + valueFifty * 50){
+                    userDisplay.messageForSumDivisibleBy20(3, inputSumMoney, valueHundred,valueFifty, count);
+                    userDisplay.successfulOperation();
+                }
+                else {
+                    if(valueFifty % 2 == 0){
+                        userDisplay.messageForSumDivisibleBy20(4, inputSumMoney, valueHundred,valueFifty, count);
+                        userDisplay.successfulOperation();
+                    } else {
+                        userDisplay.messageForSumDivisibleBy20(5, inputSumMoney, valueHundred,valueFifty, count);
+                        userDisplay.successfulOperation();
+                    }
+                }
             }
         }
     }
@@ -195,5 +267,8 @@ public class WithdrawMoney {
             userDisplay.successfulOperation();
         }
 
+
+
     }
+
 }

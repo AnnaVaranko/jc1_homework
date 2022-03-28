@@ -22,4 +22,7 @@ public class NumberBanknotes {
         return valueHundred;
     }
 
+    public long sumOfMoneyInCashMachine() {
+        return valueTwenty * 20L + valueFifty * 50L + valueHundred * 100L;
+    }
 }
