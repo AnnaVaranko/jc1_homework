@@ -44,7 +44,7 @@ public class WithdrawMoney {
 
     private void checkSum() {
         if(inputSum > 0){
-            if(inputSum % 100 == 30 || inputSum % 100 == 90 || inputSum % 100 == 10){
+            if(inputSum % 100 == 30 || inputSum % 100 == 10){
 
                 userDisplay.inputSum(inputSum);
                 fo.IsOperationFinished();
@@ -58,6 +58,7 @@ public class WithdrawMoney {
     public void toGiveMoney(int valueTwenty, int valueFifty, int valueHundred){
         outputNumberOfBanknotes(valueTwenty, valueFifty, valueHundred);
     }
+
     private void outputNumberOfBanknotes(int twenty, int fifty,int hundred) {
         this.valueTwenty = twenty;
         this.valueFifty = fifty;
@@ -74,7 +75,7 @@ public class WithdrawMoney {
         int sumMoneyInCashMachine = (valueTwenty * 20) + (valueFifty * 50) + (valueHundred * 100);
 
         if(sumMoneyInCashMachine >= inputSumMoney & inputSumMoney > 0){
-            System.out.println("ATM prepares sum of money...");
+            System.out.println("ATM prepares sum of money...\n");
             byWhatDivisibleInputSum();
             whichMoneyGive();
         } else if (sumMoneyInCashMachine < inputSumMoney)
@@ -86,6 +87,7 @@ public class WithdrawMoney {
         else if(inputSumMoney % 50 == 0) caseOfDivision = 2;
         else if (inputSumMoney % 20 == 0) caseOfDivision = 3;
         else if (inputSumMoney / 100 == 70) caseOfDivision = 4;
+        else if (inputSumMoney / 100 == 90) caseOfDivision = 5;
     }
 
     private void whichMoneyGive() {
@@ -96,7 +98,9 @@ public class WithdrawMoney {
             break;
             case 3: inputSumDivisibleBy20();
             break;
-            case 4: inputSumEndedOf70();
+            case 4: inputSumEndedBy70();
+            break;
+            case 5: inputSumEndedBy90();
             default: userDisplay.incorrectInput();
         }
     }
@@ -105,23 +109,24 @@ public class WithdrawMoney {
 
         if(inputSumMoney == 100){
             userDisplay.messageForSumDivisibleBy100(1, inputSumMoney, valueFifty,valueHundred);
-            userDisplay.successfulOperation();
             return;
         }
 
         if(inputSumMoney <= valueHundred * 100){
             userDisplay.messageForSumDivisibleBy100(2, inputSumMoney, valueFifty, valueHundred);
-            userDisplay.successfulOperation();
 
         } else if(inputSumMoney <= (valueHundred * 100 + valueFifty * 50)){
             userDisplay.messageForSumDivisibleBy100(3, inputSumMoney, valueFifty, valueHundred);
-            userDisplay.successfulOperation();
 
         } else if (inputSumMoney <= (valueHundred * 100 + valueFifty * 50 + valueTwenty * 20)){
 
-            if(valueFifty % 2 == 0) userDisplay.messageForSumDivisibleBy100(4, inputSumMoney, valueFifty, valueHundred);
-            else userDisplay.messageForSumDivisibleBy100(5, inputSumMoney, valueFifty, valueHundred);
-            userDisplay.successfulOperation();
+            if(valueFifty % 2 == 0){
+                userDisplay.messageForSumDivisibleBy100(4, inputSumMoney, valueFifty, valueHundred);
+            }
+            else{
+                userDisplay.messageForSumDivisibleBy100(5, inputSumMoney, valueFifty, valueHundred);
+            }
+            
         }
 
     }
@@ -130,52 +135,45 @@ public class WithdrawMoney {
 
         if(inputSumMoney == 50){
             userDisplay.messageForSumDivisibleBy50(1, valueFifty, valueHundred, inputSumMoney);
-            userDisplay.successfulOperation();
             return;
         }
 
         if(inputSumMoney <= valueHundred * 100){
             userDisplay.messageForSumDivisibleBy50(2, valueFifty, valueHundred, inputSumMoney);
-            userDisplay.successfulOperation();
 
         } else if(inputSumMoney <= (valueHundred * 100 + valueFifty * 50)){
             userDisplay.messageForSumDivisibleBy50(3, valueFifty, valueHundred, inputSumMoney);
-            userDisplay.successfulOperation();
 
         }else if (inputSumMoney <= (valueHundred * 100 + valueFifty * 50 + valueTwenty * 20)) {
 
             if(valueFifty % 2 == 0){
                 userDisplay.messageForSumDivisibleBy50(4, valueFifty, valueHundred, inputSumMoney);
-                userDisplay.successfulOperation();
             } else{
                 userDisplay.messageForSumDivisibleBy50(5, valueFifty, valueHundred, inputSumMoney);
-                userDisplay.successfulOperation();
             }
         }
     }
 
     private void inputSumDivisibleBy20() {
         int count;
+
         if (inputSumMoney % 100 == 20) {
             count = 1;
             if (inputSumMoney == 20) {
                 userDisplay.messageForSumDivisibleBy20(1, inputSumMoney, valueHundred,valueFifty, count);
-                userDisplay.successfulOperation();
+
             } else {
                 if(inputSumMoney < valueHundred*100 + 20){
                     userDisplay.messageForSumDivisibleBy20(2, inputSumMoney, valueHundred,valueFifty, count );
-                    userDisplay.successfulOperation();
+
                 } else if (inputSumMoney < valueHundred*100 + 20 + valueFifty * 50){
                     userDisplay.messageForSumDivisibleBy20(3, inputSumMoney, valueHundred,valueFifty, count);
-                    userDisplay.successfulOperation();
                 }
                 else {
                     if(valueFifty % 2 == 0){
                         userDisplay.messageForSumDivisibleBy20(4, inputSumMoney, valueHundred,valueFifty, count);
-                        userDisplay.successfulOperation();
                     } else {
                         userDisplay.messageForSumDivisibleBy20(5, inputSumMoney, valueHundred,valueFifty, count);
-                        userDisplay.successfulOperation();
                     }
                 }
 
@@ -185,27 +183,22 @@ public class WithdrawMoney {
             count = 2;
             if (inputSumMoney == 40) {
                 userDisplay.messageForSumDivisibleBy20(1, inputSumMoney, valueHundred,valueFifty, count );
-                userDisplay.successfulOperation();
 
             } else {
 
                 if(inputSumMoney < valueHundred*100 + 2 * 20){
                     userDisplay.messageForSumDivisibleBy20(2, inputSumMoney, valueHundred,valueFifty, count );
-                    userDisplay.successfulOperation();
 
                 } else if (inputSumMoney < valueHundred*100 + 2*20 + valueFifty * 50){
                     userDisplay.messageForSumDivisibleBy20(3, inputSumMoney, valueHundred,valueFifty, count );
-                    userDisplay.successfulOperation();
                 }
                 else {
 
                     if(valueFifty % 2 == 0){
                         userDisplay.messageForSumDivisibleBy20(4, inputSumMoney, valueHundred,valueFifty, count );
-                        userDisplay.successfulOperation();
 
                     } else {
                         userDisplay.messageForSumDivisibleBy20(5, inputSumMoney, valueHundred,valueFifty, count );
-                        userDisplay.successfulOperation();
                     }
                 }
             }
@@ -214,22 +207,19 @@ public class WithdrawMoney {
             count = 3;
             if (inputSumMoney == 60) {
                 userDisplay.messageForSumDivisibleBy20(1, inputSumMoney, valueHundred,valueFifty, count );
-                userDisplay.successfulOperation();
+
             } else {
                 if(inputSumMoney < valueHundred*100 + 3 * 20){
                     userDisplay.messageForSumDivisibleBy20(2, inputSumMoney, valueHundred,valueFifty, count );
-                    userDisplay.successfulOperation();
+
                 } else if (inputSumMoney < valueHundred*100 + 3*20 + valueFifty * 50){
                     userDisplay.messageForSumDivisibleBy20(3, inputSumMoney, valueHundred,valueFifty, count);
-                    userDisplay.successfulOperation();
                 }
                 else {
                     if(valueFifty % 2 == 0){
                         userDisplay.messageForSumDivisibleBy20(4, inputSumMoney, valueHundred,valueFifty, count);
-                        userDisplay.successfulOperation();
                     } else {
                         userDisplay.messageForSumDivisibleBy20(5, inputSumMoney, valueHundred,valueFifty, count);
-                        userDisplay.successfulOperation();
                     }
                 }
             }
@@ -237,22 +227,19 @@ public class WithdrawMoney {
             count = 4;
             if (inputSumMoney == 80) {
                 userDisplay.messageForSumDivisibleBy20(1, inputSumMoney, valueHundred,valueFifty, count);
-                userDisplay.successfulOperation();
+
             } else {
                 if(inputSumMoney < valueHundred*100 + 4 * 20){
                     userDisplay.messageForSumDivisibleBy20(2, inputSumMoney, valueHundred,valueFifty, count);
-                    userDisplay.successfulOperation();
+                    
                 } else if (inputSumMoney < valueHundred*100 + 4*20 + valueFifty * 50){
                     userDisplay.messageForSumDivisibleBy20(3, inputSumMoney, valueHundred,valueFifty, count);
-                    userDisplay.successfulOperation();
                 }
                 else {
                     if(valueFifty % 2 == 0){
                         userDisplay.messageForSumDivisibleBy20(4, inputSumMoney, valueHundred,valueFifty, count);
-                        userDisplay.successfulOperation();
                     } else {
                         userDisplay.messageForSumDivisibleBy20(5, inputSumMoney, valueHundred,valueFifty, count);
-                        userDisplay.successfulOperation();
                     }
                 }
             }
@@ -260,15 +247,47 @@ public class WithdrawMoney {
     }
 
 
-    private void inputSumEndedOf70() {
+    private void inputSumEndedBy70() {
         if (inputSumMoney == 70) {
-            System.out.println("Take 1 banknote with denomination 50," +
-                    "1  banknote with denomination 70");
-            userDisplay.successfulOperation();
+            userDisplay.messageForSumEndedBy70(1, inputSumMoney, valueHundred, valueFifty);
         }
 
+        if(inputSumMoney < valueHundred*100 + 70){
+            userDisplay.messageForSumEndedBy70(2, inputSumMoney, valueHundred, valueFifty);
 
+        } else if (inputSumMoney < valueHundred * 100 + (valueFifty - 1) * 50 + 70) {
+            userDisplay.messageForSumEndedBy70(3, inputSumMoney, valueHundred, valueFifty);
 
+        } else{
+            if(valueFifty % 2 == 0){
+                userDisplay.messageForSumEndedBy70(4, inputSumMoney, valueHundred, valueFifty);
+
+            } else{
+                userDisplay.messageForSumEndedBy70(5, inputSumMoney, valueHundred, valueFifty);
+            }
+        }
+
+    }
+
+    private void inputSumEndedBy90() {
+        if (inputSumMoney == 90) {
+            userDisplay.messageForSumEndedBy90(1, inputSumMoney, valueHundred, valueFifty);
+        }
+
+        if(inputSumMoney < valueHundred*100 + 90){
+            userDisplay.messageForSumEndedBy90(2, inputSumMoney, valueHundred, valueFifty);
+
+        } else if (inputSumMoney < valueHundred * 100 + (valueFifty - 1) * 50 + 90) {
+            userDisplay.messageForSumEndedBy90(3, inputSumMoney, valueHundred, valueFifty);
+
+        } else{
+            if(valueFifty % 2 == 0){
+                userDisplay.messageForSumEndedBy90(4, inputSumMoney, valueHundred, valueFifty);
+
+            } else{
+                userDisplay.messageForSumEndedBy90(5, inputSumMoney, valueHundred, valueFifty);
+            }
+        }
     }
 
 }
