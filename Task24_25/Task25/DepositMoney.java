@@ -63,7 +63,7 @@ public class DepositMoney {
 
     private void setCountTwenty() {
         inputNumberBanknotes20();
-        if (banknote.matches("\\d+")){
+        if (banknote.matches("\\d{1,9}")){
             countTwenty = countTwenty + Integer.parseInt(banknote);
             userDisplay.successfulOperation();
         }
@@ -74,14 +74,13 @@ public class DepositMoney {
     }
 
     private void inputNumberBanknotes20() {
-        //TODO: if number too long
         System.out.println("Input number of banknotes with denominations 20: ");
         banknote = scanner.nextLine();
     }
 
     private void setCountFifty() {
         inputNumberBanknotes50();
-        if (banknote.matches("\\d+")){
+        if (banknote.matches("\\d{1,9}")){
             countFifty =  countFifty + Integer.parseInt(banknote);
             userDisplay.successfulOperation();
         }
@@ -92,14 +91,13 @@ public class DepositMoney {
     }
 
     private void inputNumberBanknotes50() {
-        //TODO: if number too long
         System.out.println("Input number of banknotes with denominations 50: ");
         banknote = scanner.nextLine();
     }
 
     private void setCountHundred() {
         inputNumberBanknotes100();
-        if (banknote.matches("\\d+")){
+        if (banknote.matches("\\d{1,9}")){
             countHundred = countHundred + Integer.parseInt(banknote);
             userDisplay.successfulOperation();
         }
@@ -110,7 +108,6 @@ public class DepositMoney {
     }
 
     private void inputNumberBanknotes100() {
-        //TODO: if number too long
         System.out.println("Input number of banknotes with denominations 100: ");
         banknote = scanner.nextLine();
     }

@@ -138,8 +138,8 @@ public class UserDisplay {
                 break;
             case 3:
                 System.out.println("Take " + count + " banknotes whit denomination 20," +
-                        "\n" + valueHundred + "whit denomination 100" +
-                        "\n" + (inputSumMoney - valueHundred * 100 - count * 20) / 50 + "whit denomination 100");
+                        "\n" + valueHundred + " whit denomination 100," +
+                        "\n" + (inputSumMoney - valueHundred * 100 - count * 20) / 50 + " whit denomination 50");
                 break;
             case 4:
                 System.out.println("Take " + valueHundred + " banknotes with denomination 100," +
@@ -168,17 +168,17 @@ public class UserDisplay {
                 break;
             case 3:
                 System.out.println("Take " + valueHundred + " banknote with denomination 100," +
-                        "\n" + (inputSumMoney - valueHundred*100 - 20)/50 + "banknote with denomination 50," +
+                        "\n" + (inputSumMoney - valueHundred*100 - 20)/50 + " banknote with denomination 50," +
                         "\n1 banknote with denomination 20");
                 break;
             case 4:
                 System.out.println("Take " + valueHundred + " banknote with denomination 100," +
-                        "\n" + (valueFifty-1) + "banknote with denomination 50," +
+                        "\n" + (valueFifty-1) + " banknote with denomination 50," +
                         "\n"+ (inputSumMoney - valueHundred*100 - (valueFifty-1)*50)/20 + " banknote with denomination 20");
                 break;
             case 5:
                 System.out.println("Take " + valueHundred + " banknote with denomination 100," +
-                        "\n" + valueFifty + "banknote with denomination 50," +
+                        "\n" + valueFifty + " banknote with denomination 50," +
                         "\n"+ (inputSumMoney - valueHundred*100 - valueFifty*50)/20 + " banknote with denomination 20");
                 break;
         }
@@ -203,12 +203,12 @@ public class UserDisplay {
                 break;
             case 4:
                 System.out.println("Take " + valueHundred + " banknote with denomination 100," +
-                        "\n" + (valueFifty-1) + "banknote with denomination 50," +
+                        "\n" + (valueFifty-1) + " banknote with denomination 50," +
                         "\n"+ (inputSumMoney - valueHundred*100 - (valueFifty-1)*50)/20 + " banknote with denomination 20");
                 break;
             case 5:
                 System.out.println("Take " + valueHundred + " banknote with denomination 100," +
-                        "\n" + valueFifty + "banknote with denomination 50," +
+                        "\n" + valueFifty + " banknote with denomination 50," +
                         "\n"+ (inputSumMoney - valueHundred*100 - valueFifty*50)/20 + " banknote with denomination 20");
                 break;
         }

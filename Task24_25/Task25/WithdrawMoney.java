@@ -86,8 +86,8 @@ public class WithdrawMoney {
         if(inputSumMoney % 100 == 0) caseOfDivision = 1;
         else if(inputSumMoney % 50 == 0) caseOfDivision = 2;
         else if (inputSumMoney % 20 == 0) caseOfDivision = 3;
-        else if (inputSumMoney / 100 == 70) caseOfDivision = 4;
-        else if (inputSumMoney / 100 == 90) caseOfDivision = 5;
+        else if (inputSumMoney % 100 == 70) caseOfDivision = 4;
+        else if (inputSumMoney % 100 == 90) caseOfDivision = 5;
     }
 
     private void whichMoneyGive() {
@@ -101,6 +101,7 @@ public class WithdrawMoney {
             case 4: inputSumEndedBy70();
             break;
             case 5: inputSumEndedBy90();
+            break;
             default: userDisplay.incorrectInput();
         }
     }
