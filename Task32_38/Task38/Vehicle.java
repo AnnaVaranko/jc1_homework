@@ -1,9 +1,7 @@
 package Task32_38.Task38;
 
 public class Vehicle {
-    private String name;
-
-    Vehicle(){}
+    private final String name;
 
     Vehicle(String name){
         this.name = name;
