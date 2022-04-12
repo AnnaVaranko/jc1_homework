@@ -1,14 +1,14 @@
 package task24_25.task25;
 
 public class CashMachine {
-    final UserDisplay userDisplay;
-    final NumberBanknotes nb;
-    final DepositMoney dm;
-    final WithdrawMoney wm;
+    private final UserDisplay userDisplay;
+    private final NumberBanknotes nb;
+    private final DepositMoney dm;
+    private final WithdrawMoney wm;
 
     public CashMachine() {
         this.userDisplay = new UserDisplay();
-        this.nb = new NumberBanknotes(3132, 335, 213);
+        this.nb = new NumberBanknotes(999999999, 335, 213);
         this.dm = new DepositMoney();
         this.wm = new WithdrawMoney();
     }

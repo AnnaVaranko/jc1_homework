@@ -4,7 +4,7 @@ public class Task39 {
     public static void main(String[] args) {
 
         CreateArrayList createArrayList = new CreateArrayList();
-        createArrayList.writeArrayList();
+        createArrayList.getArrayList();
 
     }
 }
