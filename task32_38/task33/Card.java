@@ -1,10 +1,14 @@
 package task32_38.task33;
 
-public class Card {
-    private String color;
+import java.io.Serializable;
+
+public class Card implements Serializable {
+    public transient String color;
     private double width;
     private double height;
     private double area;
+
+    public static int i = 1;
 
     Card(String color, double height, double width){
         this.color = color;
