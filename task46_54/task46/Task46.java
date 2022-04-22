@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Task46 {
-    public static String getFile(){
+    public  String getFile(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter path to file or directory");
         return scanner.nextLine();
@@ -14,7 +14,7 @@ public class Task46 {
     public static void main(String[] args)  {
 
         try {
-            PathToFile pathToFile = new PathToFile(getFile());
+            PathToFile pathToFile = new PathToFile(new Task46().getFile());
             pathToFile.getFileName();
 
         } catch (FileNotFoundException e) {

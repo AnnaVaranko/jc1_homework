@@ -11,7 +11,7 @@ public class Task27 {
         System.out.println("Enter the line: ");
         String str = scanner.nextLine();
 
-        if(str == "null") {
+        if(str == null) {
             System.out.println("Incorrect input");
             return;
         }
@@ -20,11 +20,14 @@ public class Task27 {
         String str3 = str2.stripLeading();
         System.out.println("Line without extra space: " + str3);
 
-        for(int i = 0; i < str3.length(); i ++){
-            symbol = str3.charAt(i);
-            if(symbol == ' ') count++;
-        }
-        System.out.println("Number of word in the line: " + count);
+        if (!str3.equals(" ")) {
+            for (int i = 0; i < str3.length(); i++) {
+                symbol = str3.charAt(i);
+                if (symbol == ' ') count++;
+            }
+            System.out.println("Number of word in the line: " + count);
+        } else System.out.println("In the text there isn't word.");
+
     }
 
     public static void main(String[] args) {

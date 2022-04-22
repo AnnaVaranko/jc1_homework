@@ -11,11 +11,10 @@ public class PathToFile {
 
     PathToFile(String filesName){
         path = new File(filesName);
-        System.out.println(filesName);
     }
 
     public void getFileName() throws IOException, NullPointerException {
-        System.out.println(path.getName());
+
         if(path.exists()){
             System.out.println("Absolute path: " + path.getCanonicalPath());
 

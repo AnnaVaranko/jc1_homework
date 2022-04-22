@@ -45,21 +45,26 @@ public class MyCollection {
 
         for (int i = 0; i < randomNumber.size(); i++) {
 
-            if (i == randomNumber.size() - 1) {
-                continue;
-            }
+            if (i == randomNumber.size() - 1) {continue;}
 
             for (int j = i + 1; j < randomNumber.size(); j++) {
 
                 int number = randomNumber.get(i);
                 int number2 = randomNumber.get(j);
 
-                if (number == number2) {
+                if (!(number == number2)) {
+                    //log.log(Level.INFO, "not in if");
+                } else {
                     randomNumber.remove(j);
                     j = i + 1;
-                } else {
-                    //log.log(Level.INFO, "not in if");
                 }
+            }
+        }
+
+        boolean isTrue = true;
+        for (Integer num: randomNumber) {
+            for(int h = 1; h < randomNumber.size(); h ++){
+
             }
         }
         getNewArray();
