@@ -17,7 +17,7 @@ public class ReadAndUseFile {
         filesContent = new StringBuilder();
     }
 
-    public void readMyFile() {
+    protected void readMyFile() {
         try (
                 FileReader fileReader = new FileReader(name);
                 BufferedReader br = new BufferedReader(fileReader);

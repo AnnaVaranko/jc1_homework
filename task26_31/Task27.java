@@ -19,10 +19,11 @@ public class Task27 {
         String str2 = str.replaceAll(" +", " ");
         String str3 = str2.stripLeading();
         System.out.println("Line without extra space: " + str3);
+        str2 = str3 + " ";
 
-        if (!str3.equals(" ")) {
-            for (int i = 0; i < str3.length(); i++) {
-                symbol = str3.charAt(i);
+        if (!str2.equals(" ")) {
+            for (int i = 0; i < str2.length(); i++) {
+                symbol = str2.charAt(i);
                 if (symbol == ' ') count++;
             }
             System.out.println("Number of word in the line: " + count);
