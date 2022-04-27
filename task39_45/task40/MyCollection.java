@@ -3,15 +3,15 @@ package task39_45.task40;
 import task39_45.task39.CreateArrayList;
 
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.HashSet;
+import java.util.Set;
 
 public class MyCollection {
 
     private int size;
     private final CreateArrayList arrayList;
     private ArrayList<Integer> randomNumber;
-    private final Logger log = Logger.getLogger("MyCollection");
+    Set<Integer> numberSet;
 
     MyCollection(){
         this.arrayList = new CreateArrayList();
@@ -25,6 +25,7 @@ public class MyCollection {
         if(arrayList.checkInput()) {
             createArrayList();
             checkNumber();
+            getNewArray();
         }
     }
 
@@ -42,38 +43,13 @@ public class MyCollection {
     }
 
     private void checkNumber() {
-
-        for (int i = 0; i < randomNumber.size(); i++) {
-
-            if (i == randomNumber.size() - 1) {continue;}
-
-            for (int j = i + 1; j < randomNumber.size(); j++) {
-
-                int number = randomNumber.get(i);
-                int number2 = randomNumber.get(j);
-
-                if (!(number == number2)) {
-                    //log.log(Level.INFO, "not in if");
-                } else {
-                    randomNumber.remove(j);
-                    j = i + 1;
-                }
-            }
-        }
-
-        boolean isTrue = true;
-        for (Integer num: randomNumber) {
-            for(int h = 1; h < randomNumber.size(); h ++){
-
-            }
-        }
-        getNewArray();
+        Set<Integer> numberSet = new HashSet<>(randomNumber);
     }
 
     private void getNewArray(){
         System.out.println("\nNew list array: ");
 
-        for(Integer integer : randomNumber)
+        for(Integer integer : numberSet)
             System.out.print(integer + " ");
     }
 }
