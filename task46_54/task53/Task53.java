@@ -1,6 +1,6 @@
 package task46_54.task53;
 
-public class task53 {
+public class Task53 {
     public static void main(String[] args) throws InterruptedException {
 
         for (int i = 1; i < 11; i++) {
@@ -24,14 +24,14 @@ class MyThread extends Thread{
         System.out.println("Max number: " + searchMaxInt());
     }
 
-    private synchronized void getArray(){
+    private void getArray(){
         for(int i = 0; i < 10; i++){
             arr[i] = (int) (Math.random() * 20 + 1);
-            System.out.print(arr[i] + " ");
+//            System.out.print(arr[i] + " ");
         }
     }
 
-    private synchronized int searchMaxInt(){
+    private int searchMaxInt(){
         int firstNumber = arr[0];
 
         for(int i = 1; i < 10; i++){
