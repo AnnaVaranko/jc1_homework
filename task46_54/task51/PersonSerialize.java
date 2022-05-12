@@ -42,9 +42,10 @@ public class PersonSerialize {
              ObjectOutputStream oos = new ObjectOutputStream(fos)
         ){
 
-            for(int i = 0; i < 2; i++){
+            for(int i = 0; i < 10; i++){
                 person = new Person(getName(), getSurname(), getAge());
                 oos.writeObject(person);
+                person = null;
             }
         } catch (IOException e) {
             e.printStackTrace();
