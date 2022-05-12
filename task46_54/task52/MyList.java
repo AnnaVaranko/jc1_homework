@@ -1,14 +1,15 @@
 package task46_54.task52;
 
-import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class MyList {
 
-    private static ArrayList<Integer> list;
+    private static List<Integer> list;
     private double sum;
 
     public MyList() {
-        list = new ArrayList<>();
+        list = new CopyOnWriteArrayList<>();
     }
 
     protected synchronized void writeArrayList() {
