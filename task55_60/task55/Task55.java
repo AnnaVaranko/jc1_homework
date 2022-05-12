@@ -1,4 +1,4 @@
-package task55_60.Task55;
+package task55_60.task55;
 
 public class Task55 {
     public static void main(String[] args) throws InterruptedException {
